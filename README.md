@@ -1,3 +1,5 @@
+![Banner](assets/github_banner.png)
+
 # 🚰 Real-Time Water Level Monitoring System using Ultrasonic Sensor
 
 A reliable and cost-effective water level monitoring system using an ultrasonic sensor and Arduino. The system continuously measures water level, displays it on an I2C LCD, and triggers a buzzer alert when a predefined threshold is reached to prevent overflow.
