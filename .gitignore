@@ -1,0 +1,16 @@
+# Arduino IDE
+.arduino/
+*.o
+*.elf
+*.hex
+
+# VS Code
+.vscode/
+.history/
+
+# OS specific
+Thumbs.db
+.DS_Store
+
+# Old redundant folders
+water_level/
