@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Level Monitoring System - Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0072ff;
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            width: 90vw;
+            height: 80vh;
+            max-width: 1200px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        ul {
+            list-style: none;
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .formula-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4rem;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 168, 255, 0.5);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .author-info {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter">1 / 8</div>
+
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <h1>REAL-TIME WATER LEVEL MONITORING SYSTEM</h1>
+            <p style="font-size: 1.8rem; margin-bottom: 40px;">Using Ultrasonic Sensor & Arduino</p>
+            <div class="author-info">
+                <p>Presented by: Uday V</p>
+                <p>Course: Engineering Project</p>
+                <p>Institution: Your College</p>
+                <p>Date: May 2026</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problem Statement -->
+        <div class="slide">
+            <h2>🌊 Problem Statement</h2>
+            <ul>
+                <li>Water overflow leads to <strong>wastage and damage</strong>.</li>
+                <li>Manual monitoring is <strong>inefficient and unreliable</strong>.</li>
+                <li>Lack of real-time awareness in tank systems.</li>
+                <li>Need for a <strong>low-cost automated solution</strong>.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Objectives -->
+        <div class="slide">
+            <h2>🎯 Project Objectives</h2>
+            <ul>
+                <li>Monitor water level in <strong>real-time</strong>.</li>
+                <li>Display level using <strong>LCD interface</strong>.</li>
+                <li>Provide <strong>alert when threshold is reached</strong>.</li>
+                <li>Ensure <strong>accuracy and stability</strong>.</li>
+                <li>Develop a <strong>cost-effective system</strong>.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: System Components -->
+        <div class="slide">
+            <h2>🧩 System Components</h2>
+            <ul>
+                <li><strong>Arduino Uno:</strong> The central brain of the system.</li>
+                <li><strong>HC-SR04 Sensor:</strong> Ultrasonic distance measurement.</li>
+                <li><strong>I2C LCD 16x2:</strong> Real-time data visualization.</li>
+                <li><strong>Buzzer:</strong> Audible alert mechanism.</li>
+                <li>Jumper wires & Breadboard for connections.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Working Principle -->
+        <div class="slide">
+            <h2>⚙️ Working Principle</h2>
+            <ul>
+                <li>1. Ultrasonic sensor emits sound waves.</li>
+                <li>2. Waves reflect from water surface.</li>
+                <li>3. Time is measured → distance calculated.</li>
+                <li>4. Distance → water level percentage (%).</li>
+                <li>5. LCD displays real-time statistics.</li>
+                <li>6. Buzzer activates at threshold.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Mathematical Model -->
+        <div class="slide">
+            <h2>📐 Mathematical Model</h2>
+            <div class="formula-box">
+                Distance = (Time × 0.034) / 2
+            </div>
+            <div class="formula-box">
+                Level (%) = ((Tank Height − Distance) / Tank Height) × 100
+            </div>
+            <ul>
+                <li><strong>Threshold Condition:</strong></li>
+                <li>If Level ≥ Threshold → Alert Activated (Buzzer ON)</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: Circuit Connections -->
+        <div class="slide">
+            <h2>🔌 Circuit Connections</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;"><strong>Pin Mapping:</strong></p>
+            <ul>
+                <li><strong>HC-SR04:</strong> TRIG → D9 | ECHO → D10</li>
+                <li><strong>I2C LCD:</strong> SDA → A4 | SCL → A5</li>
+                <li><strong>Buzzer:</strong> Positive → D8</li>
+                <li><strong>Power:</strong> VCC (5V) & GND to all components</li>
+            </ul>
+        </div>
+
+        <!-- Slide 8: Results & Conclusion -->
+        <div class="slide">
+            <h2>📊 Results & Conclusion</h2>
+            <ul>
+                <li>Real-time monitoring successfully achieved.</li>
+                <li>Accurate and stable readings using filtering.</li>
+                <li>Buzzer alert effectively prevents overflow.</li>
+                <li>Conclusion: Efficient, low-cost solution with IoT potential.</li>
+            </ul>
+            <p style="margin-top: 40px; font-size: 2rem; color: var(--primary); text-align: center;">Thank You!</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
+            slideCounter.innerText = (currentSlide + 1) + ' / ' + slides.length;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
