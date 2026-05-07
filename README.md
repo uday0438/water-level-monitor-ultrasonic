@@ -80,13 +80,17 @@ int offset = 2;         // Calibration offset
 
 ---
 
-## 📸 Project Preview
+## 📸 Project Visuals
 
-| Circuit Diagram | Working Demo |
+### 📐 System Diagrams
+| Circuit Diagram | Block Diagram |
 | :---: | :---: |
-| ![Circuit](docs/circuit_diagram.png) | ![Demo](docs/working_demo.jpg) |
+| ![Circuit](docs/circuit_diagram.png) | ![Block Diagram](docs/block_diagram.png) |
 
-*(Add your images to the `docs/` folder to see them here)*
+### ⚡ Real-World Implementation
+| Hardware Setup 1 | Hardware Setup 2 |
+| :---: | :---: |
+| ![Hardware 1](docs/circuit_setup_1.jpg) | ![Hardware 2](docs/circuit_setup_2.jpg) |
 
 ---
 
